@@ -2,6 +2,8 @@
   display: flex;
   width: 100%;
   gap: 0.5rem; 
+
+  margin-bottom: 4rem;
 }
 
 .form input{
@@ -13,11 +15,17 @@
   border-radius: 8px;
   border: 1px solid var(--gray-700);
   background: var(--gray-500);
+
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.form input:hover{
+  background: var(--gray-400);  
 }
 
 .form input:focus{
-  border: 1px solid var(--purple-dark);
-  /* background: var(--purple-dark); */
+  border: 1px solid var(--purple-dark);  
 }
 
 .form input::placeholder{
@@ -44,6 +52,6 @@
   transition: background-color 0.1s;
 }
 
-.form button:hover{
+.form button:hover, button:focus{
   background: var(--blue);
 }
