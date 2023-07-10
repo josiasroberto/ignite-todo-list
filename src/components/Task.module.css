@@ -1,0 +1,86 @@
+.task{
+  width: 100%;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+
+.task + .task{
+  margin-top: 0.75rem;
+}
+
+.task button{  
+  border: 0;
+  border-radius: 8px;  
+  cursor: pointer;
+  background: transparent;
+}
+
+.task p{
+  line-height: 140%;  
+}
+
+.unchecked{
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+  line-height: 0;
+
+  transition: border-color 0.1s;
+}
+
+.unchecked:hover{
+  border-color: var(--blue-dark);
+}
+
+.checked{
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  
+  background-color: var(--purple-dark);
+  border: 2px solid var(--purple-dark);
+  border-radius: 999px;
+
+  transition: border-color background-color 0.1s;
+}
+
+ .checked:hover{
+  border-color: var(--purple);
+  background-color: var(--purple);
+}
+
+.checkboxButton:focus{
+  border-radius: 999px;
+}
+
+.trash{
+  background-color: transparent;
+  border: 0;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  outline: transparent;
+
+  transition: all 0.1s;
+}
+
+.trash:hover, .trash:focus{ 
+  background: var(--gray-400);
+  border-radius: 8px;
+  color: var(--danger);  
+}

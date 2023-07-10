@@ -18,6 +18,8 @@
 
   cursor: pointer;
   transition: background-color 0.1s;
+
+  outline: transparent;
 }
 
 .form input:hover{
@@ -48,10 +50,11 @@
   font-weight: 700;
   line-height: 140%;
   cursor: pointer;
+  outline: transparent;
 
   transition: background-color 0.1s;
 }
 
-.form button:hover, button:focus{
+.form button:hover, .form button:focus{
   background: var(--blue);
 }

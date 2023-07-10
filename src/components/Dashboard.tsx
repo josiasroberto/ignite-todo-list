@@ -1,6 +1,7 @@
 import styles from './Dashboard.module.css'
 
 import clipboard from '../assets/Clipboard.png'
+import { Task } from './Task'
 
 export function Dashboard(){
   return(
@@ -25,7 +26,9 @@ export function Dashboard(){
           <p>Crie tarefas e organize seus itens a fazer</p>
         </div>
 
+        <Task/>
       </main>       
+
     
     </>
     
