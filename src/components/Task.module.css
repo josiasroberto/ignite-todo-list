@@ -56,7 +56,7 @@
   transition: border-color background-color 0.1s;
 }
 
- .checked:hover{
+.checked:hover{
   border-color: var(--purple);
   background-color: var(--purple);
 }

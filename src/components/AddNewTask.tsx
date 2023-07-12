@@ -1,17 +1,27 @@
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 import styles from './AddNewTask.module.css'
 import plusLogo from '../assets/plus.svg'
 
-export function AddNewTask(){
-  const [tasks, setTasks] = useState([''])
+interface TaskProps{  
+  onSubmitTask: (taskToSend: object) => void;
+}
 
+export function AddNewTask({onSubmitTask}: TaskProps){
+  
   const [newTask, setNewTask] = useState('')
 
   function handleCreateNewTask(event: FormEvent){
     event.preventDefault()
 
-    setTasks([...tasks, newTask])
+    const taskToSend = {
+      id: uuidv4(),
+      content: newTask,
+      isCompleted: false
+    }
+
+    onSubmitTask(taskToSend)  
     setNewTask('')    
   }
   
