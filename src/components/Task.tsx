@@ -2,43 +2,52 @@ import styles from './Task.module.css'
 
 import { Check, Trash } from '@phosphor-icons/react'
 
+export interface TaskType{
+  id: string;
+  content: string;
+  isCompleted: boolean;
+}
 
-export function Task(){
+interface TaskProps{
+  task: TaskType;
+  onChangeCheckTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
+}
+
+export function Task({task, onChangeCheckTask, onDeleteTask}: TaskProps){
+  function handleTaskCompleted(){
+    onChangeCheckTask(task.id)
+  }
+
+  function handleDeleteTask(){
+    onDeleteTask(task.id)
+  }
+
   return(    
-    <>    
-    <div className={styles.task}> 
 
-      <button className={styles.checkboxButton}>
-        <div className={styles.unchecked}/>        
-      </button>
+  <div className={styles.task}> 
 
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo sequi animi ad officia quo voluptates voluptate unde, et modi repudiandae soluta. Eveniet, placeat laudantium minus officia quod quaerat ratione nesciunt?</p>
-      
-      <button className={styles.trash}>
-        <div>
-          <Trash size={20}/>
-        </div>
-      </button>        
-      
-    </div>   
+    <button onClick={handleTaskCompleted} className={styles.checkboxButton}>      
+      {
+        task.isCompleted ?
+          <div className={styles.checked}>
+            <Check/>
+          </div>
+        :
+        <div className={styles.unchecked}/>
+      }
+    </button>
 
-    <div className={styles.task}> 
+    <p className={task.isCompleted ? styles.paragraphChecked : '' }>
+      {task.content}
+    </p>
 
-      <button className={styles.checkboxButton}>      
-        <div className={styles.checked}>
-          <Check/>
-        </div>
-      </button>
-      
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo sequi animi ad officia quo voluptates voluptate unde, et modi repudiandae soluta. Eveniet, placeat laudantium minus officia quod quaerat ratione nesciunt?</p>
-      
-      <button className={styles.trash}>
+    <button onClick={handleDeleteTask} className={styles.trash}>
+      <div>
         <Trash size={20}/>
-      </button>        
-      
-    </div>   
+      </div>
+    </button>        
 
-    </>
-  
+  </div> 
   )
 }

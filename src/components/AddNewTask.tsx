@@ -1,30 +1,32 @@
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
+import { TaskType } from './Task'
+
 import styles from './AddNewTask.module.css'
 import plusLogo from '../assets/plus.svg'
 
 interface TaskProps{  
-  onSubmitTask: (taskToSend: object) => void;
+  onSubmitTask: (taskToSend: TaskType) => void;
 }
 
 export function AddNewTask({onSubmitTask}: TaskProps){
-  
+
   const [newTask, setNewTask] = useState('')
 
   function handleCreateNewTask(event: FormEvent){
     event.preventDefault()
 
-    const taskToSend = {
-      id: uuidv4(),
-      content: newTask,
-      isCompleted: false
-    }
+      const taskToSend = {
+        id: uuidv4(),
+        content: newTask,
+        isCompleted: false
+      }
 
-    onSubmitTask(taskToSend)  
-    setNewTask('')    
+      onSubmitTask(taskToSend)  
+      setNewTask('')
   }
-  
+
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>){
     event.target.setCustomValidity('')
     setNewTask(event.target.value)
@@ -34,7 +36,7 @@ export function AddNewTask({onSubmitTask}: TaskProps){
     event.target.setCustomValidity('Este campo é obrigatório!')
   }
 
-  const isNewTaskEmpty = newTask.length === 0
+  const isNewTaskEmpty = newTask.trim() === ""
 
   return(
     <form onSubmit={handleCreateNewTask} className={styles.form}>

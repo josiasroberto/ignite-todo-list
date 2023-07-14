@@ -23,12 +23,22 @@
 }
 
 .task p{
-  line-height: 140%;  
+  line-height: 140%; 
+  align-items: flex-start;
+  flex: 1;  
+
+  word-wrap: break-word;
+  overflow: hidden; 
+}
+
+.task .paragraphChecked{
+  color: var(--gray-300);
+  text-decoration-line: line-through;
 }
 
 .unchecked{
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
 
   border: 2px solid var(--blue);
   border-radius: 999px;
@@ -42,8 +52,8 @@
 }
 
 .checked{
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,8 +78,8 @@
 .trash{
   background-color: transparent;
   border: 0;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
